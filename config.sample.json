@@ -1,0 +1,6 @@
+{
+  "mqttURL": "tcp://mqtt.example.com",
+  "mqttTopicRoot": "",
+  "mqttUsername": "",
+  "mqttPassword": ""
+}
