@@ -1,17 +1,18 @@
 'use strict';
 
 const debug = require('debug')('mk:network-ping-mqtt:index');
-const Monitor = require('ping-monitor');
+const ping = require('ping');
 
 const mqttClient = require('./lib/mqtt');
 
-debug(`Starting monitor for internet access`);
-const monitor = new Monitor({
-  website: 'https://www.google.com',
-  interval: 1,
-});
-
-monitor.on('up', handleUp);
+setInterval(() => {
+  ping.promise.probe('google.com')
+    .then((response) => {
+      if (response.alive) {
+        handleUp();
+      }
+    });
+}, 10000);
 
 function handleUp() {
   debug('Network is up');

@@ -12,6 +12,6 @@
   "dependencies": {
     "debug": "^4.0.1",
     "mqtt": "^2.18.8",
-    "ping-monitor": "^0.1.6"
+    "ping": "^0.2.2"
   }
 }
